@@ -17,3 +17,26 @@ int main(){
     cout << "\nMin = " << B[5];
     return 0;
 }
+
+void stat(const double A[],int N ,double B[])
+{
+    double sum,GeoTime,MinusMean,mean,STD,GeoMean,Harmonic,max,min;
+    for(int i = 0; i < N; i++){
+      sum += A[i];
+    }
+
+    mean = sum/N;
+
+    for(int i = 0; i < N; i++){
+      GeoTime *= A[i];
+    }
+     for(int i = 0; i < N; i++){
+      MinusMean += pow(A[i]-mean,2);
+    }
+    STD = pow(MinusMean/(N-1))
+    
+
+
+    B[0] = mean;
+    cout << sum;
+}
