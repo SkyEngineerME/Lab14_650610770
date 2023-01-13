@@ -20,23 +20,42 @@ int main(){
 
 void stat(const double A[],int N ,double B[])
 {
-    double sum,GeoTime,MinusMean,mean,STD,GeoMean,Harmonic,max,min;
+    double sum = 0,Nd = N,GeoTime = 1,MinusMean = 0,mean = 0,STD = 0,GeoMean = 0,Harmonic = 0,FlacPlus =0,max,min;
+    max = A[0],min = A[0];
+
     for(int i = 0; i < N; i++){
       sum += A[i];
     }
-
-    mean = sum/N;
+    mean = sum/Nd;
 
     for(int i = 0; i < N; i++){
       GeoTime *= A[i];
     }
-     for(int i = 0; i < N; i++){
+    for(int i = 0; i < N; i++){
       MinusMean += pow(A[i]-mean,2);
     }
-    STD = pow(MinusMean/(N-1))
-    
+    STD = sqrt(MinusMean/(Nd));
+    GeoMean = pow(GeoTime,1/Nd);
 
+    for(int i = 0; i < N; i++){
+      FlacPlus += 1/A[i];
+    }
+    Harmonic = N/FlacPlus;
+    
+    for(int i = 0; i < N; i++){
+      if(max < A[i]) max = A[i];
+      else;
+    }
+    for(int i = 0; i < N; i++){
+      if(min > A[i]) min = A[i];
+      else;
+    }
 
     B[0] = mean;
-    cout << sum;
+    B[1] = STD;
+    B[2] = GeoMean;
+    B[3] = Harmonic;
+    B[4] = max;
+    B[5] = min;
 }
+    
